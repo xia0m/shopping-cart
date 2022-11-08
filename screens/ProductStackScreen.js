@@ -1,9 +1,23 @@
-import { Div, Text } from 'react-native-magnus';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function ProductStackScreen() {
+import DetailsScreen from './DetailsScreen';
+import ProductListScreen from './ProductListScreen';
+
+const ProductStack = createNativeStackNavigator();
+
+export default function ProductStackScreen({ navigation, route }) {
   return (
-    <Div>
-      <Text>product stack</Text>
-    </Div>
+    <ProductStack.Navigator>
+      <ProductStack.Screen
+        name="ProductList"
+        component={ProductListScreen}
+        options={{ title: '商品列表' }}
+      />
+      <ProductStack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{ title: '商品详情' }}
+      />
+    </ProductStack.Navigator>
   );
 }
