@@ -5,7 +5,7 @@ import ShoppingCartScreen from './ShoppingCartScreen';
 
 const ShoppingCartStack = createNativeStackNavigator();
 
-export default function ShoppingCartStackScreen({ navigation, route }) {
+export default function ShoppingCartStackScreen() {
   return (
     <ShoppingCartStack.Navigator>
       <ShoppingCartStack.Screen

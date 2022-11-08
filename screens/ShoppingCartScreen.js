@@ -6,7 +6,6 @@ import CartItem from '../components/CartItem';
 import PromoInput from '../components/PromoInput';
 import { useCart } from '../context/CartContext';
 
-// const ShoppingCartStack = createNativeStackNavigator();
 export default function ShoppingCartScreen({ route, navigation }) {
   const { cart } = useCart();
   return (
