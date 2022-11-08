@@ -22,7 +22,7 @@ export default function CartItem({ data }) {
           <Div row alignItems="center" mb={16} justifyContent="space-between">
             <Image source={{ uri: imageUrl }} h={36} w={36} resize resizeMode="cover" />
             <Text flex={1} fontSize={18} fontWeight="600" textAlign="center">
-              {title}
+              {title} {id}
             </Text>
             <Div>
               <Button bg="#fceae8" rounded="circle" onPress={deleteCartItem}>
