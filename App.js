@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from 'react-native-magnus';
+
+import ProductStackScreen from './screens/ProductStackScreen';
+import ShoppingCartStackScreen from './screens/ShoppingCartStackScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <ThemeProvider>
+        <Tab.Navigator screenOptions={{ headerShown: false }}>
+          <Tab.Screen
+            name="Product"
+            component={ProductStackScreen}
+            options={{ title: '商品列表' }}
+          />
+          <Tab.Screen
+            name="Cart"
+            component={ShoppingCartStackScreen}
+            options={{ title: '购物车' }}
+          />
+        </Tab.Navigator>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
