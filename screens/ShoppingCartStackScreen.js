@@ -1,9 +1,23 @@
-import { Div, Text } from 'react-native-magnus';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function ShoppingCartStackScreen() {
+import DetailsScreen from './DetailsScreen';
+import ShoppingCartScreen from './ShoppingCartScreen';
+
+const ShoppingCartStack = createNativeStackNavigator();
+
+export default function ShoppingCartStackScreen({ navigation, route }) {
   return (
-    <Div>
-      <Text>cart stack</Text>
-    </Div>
+    <ShoppingCartStack.Navigator>
+      <ShoppingCartStack.Screen
+        name="ShoppingCart"
+        component={ShoppingCartScreen}
+        options={{ title: '购物车' }}
+      />
+      <ShoppingCartStack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{ title: '商品详情' }}
+      />
+    </ShoppingCartStack.Navigator>
   );
 }
