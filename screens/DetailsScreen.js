@@ -1,4 +1,4 @@
-import { Div } from 'react-native-magnus';
+import { ScrollView } from 'react-native';
 
 import ProductCard from '../components/ProductCard';
 import { useCart } from '../context/CartContext';
@@ -8,8 +8,8 @@ export default function DetailsScreen({ route, navigation }) {
   const { productList } = useCart();
   const productData = productList.find((item) => item.id === parseInt(productId, 10));
   return (
-    <Div>
+    <ScrollView>
       <ProductCard data={{ item: productData }} />
-    </Div>
+    </ScrollView>
   );
 }
